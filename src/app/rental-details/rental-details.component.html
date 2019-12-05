@@ -1,0 +1,24 @@
+<h3 id="rental-header" class="text-secondary" style="margin-top: 120px;margin-left: 30px">Rental details</h3>
+<hr>
+<div class="row" style="margin-left: 30px">
+    <div class="col-md-4">
+        <div id="rental-details">
+            <p *ngIf="rental" class="text-muted">Rental no : {{rental.id }}</p>
+            <p *ngIf="rental" class="text-muted">Rented on {{rental.rentalBegin |  date:'dd-MM-yyyy hh:mm a' }}</p>
+            <p *ngIf="rental" class="text-muted">Rental starting at {{ rental.bike.rentalPriceForFirstHour | currency :' Rs '  }} for first hour</p>
+            <p *ngIf="rental" class="text-muted">Additional charges {{ rental.bike.rentalPriceForAdditionalHours | currency :' Rs ' }} every hour </p>
+            <img id="image-bike" *ngIf="rental" src="{{rental.bike.image}}" alt="" class="img-thumbnail">
+        </div>
+    </div>
+    <div *ngIf="rental" class="col-md-8">
+        <div id="bike-details">
+            <h3 class="text-dark">{{ rental.bike.model }}</h3>
+            <p class="text-muted">{{ rental.bike.vehicleNumber }}</p>
+            <p class="text-muted">Purchased on {{ rental.bike.dateOfPurchase |  date:'dd-MM-yyyy' }}</p>
+            <hr>
+            <h5 class="text-dark" id="seller-details">Seller Information</h5>
+            <p class="text-muted"><i class="fa fa-user"></i>{{ rental.bike.seller.name }}</p>
+            <p class="text-muted"><i class="fa fa-home"></i>{{ rental.bike.seller.address }}</p>
+            <p class="text-muted"><i class="fa fa-phone"></i>{{ rental.bike.seller.phone }}</p>
+        </div>
+    </div>

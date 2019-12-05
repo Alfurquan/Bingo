@@ -1,0 +1,16 @@
+<h3 class="display-4 text-center">My Bikes</h3>
+<table class="table table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th>Model</th>
+            <th>Vehicle Number</th>
+            <th>Options</th>
+        </tr>
+        <tr *ngFor="let bike of bikes">
+            <td>{{ bike.model }}</td>
+            <td>{{ bike.vehicleNumber }}</td>
+            <td><a class="btn btn-secondary" [routerLink]="['/seller/edit',bike.id]">Edit</a>
+                <a class="btn btn-secondary" (click)="deleteBike(bike.id)"style="margin-left: 10px;color: white">Delete</a></td>
+        </tr>
+    </thead>
+</table>

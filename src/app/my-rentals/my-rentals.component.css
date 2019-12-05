@@ -1,0 +1,60 @@
+#header{
+    margin-bottom: 3%;
+    color: indianred;
+}
+#all-rentals{
+    margin-top: 5%;
+}
+#active-rentals{
+    margin-top: 5%;
+}
+#ended-rentals{
+    margin-top: 5%;
+}
+p{
+    margin: 0 !important;
+}
+/* #bike-image{
+    padding-left: 200px;
+    padding-right: 50px;
+} */
+
+#end-btn{
+    margin-top: 40px;
+}
+#my-modal{
+    display: none;
+}
+.row{
+    border-bottom: 1px solid #D3D3D3;
+    padding: 15px 0px 15px 0px;
+}
+::ng-deep .nav-fill .nav-link.active {
+    margin-top: -1px;
+    border-top: 2px solid #20a8d8;
+    color: yellow;
+}
+
+::ng-deep a {
+  color: grey;
+}
+
+::ng-deep a:hover {
+  color: indianred;
+}
+
+::ng-deep .nav-pills a.nav-link.active, 
+::ng-deep .nav-pills .show > a.nav-link {
+    color: #fff;
+    background-color: indianred;
+}
+.viewBtn{
+    color: indianred;
+    background-color: white;
+    border: 1px solid indianred;
+}
+.viewBtn:hover{
+    color:white;
+    background-color: indianred;
+}
+

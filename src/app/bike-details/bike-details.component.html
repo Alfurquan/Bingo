@@ -1,0 +1,46 @@
+<div class="row" style="margin:100px 30px 20px 30px">
+    <div class="col-md-6">
+        <div *ngIf="bike" class="card" style="width: 22rem">
+            <img class="card-img-top" [src]="bike.image" *ngIf="bike.image">
+            <div class="card-header">
+                <h5 class="display-4" style="font-size: 40px">{{ bike.model }}</h5>
+                <p>{{ bike.vehicleNumber }}</p>
+            </div>
+            <div class="card-body">
+                <p><span class="font-weight-bold">Date Of Purchase :</span> {{ bike.dateOfPurchase | date:'dd-MM-yyyy' }}</p>
+                <p><span class="font-weight-bold">Date Of Last Service :</span> {{ bike.dateOfLastService | date:'dd-MM-yyyy' }}</p>
+                <p><span class="font-weight-bold">Number In Stock :</span> {{ bike.noInStock}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header header text-white">
+                <h1 class="display-4">Rental</h1>
+            </div>
+            <div class="card-body">
+                    <div *ngIf="bike" class="rental-details">
+                        <p><span class="font-weight-bold">First Hour @ :</span>{{ bike.rentalPriceForFirstHour | currency :' Rs' }}</p>
+                        <p><span class="font-weight-bold">Additional Hours @ :</span>{{ bike.rentalPriceForAdditionalHours | currency :' Rs' }}</p>
+                    </div>
+            </div>
+            <div class="card-footer">
+                    <button id="rentNow" (click)="startNow()" class="btn" style="background-color: indianred;color:white !important">Rent now</button>
+                    <button id="scheduleForLater" class="btn btn-outline-danger">Schedule a ride</button>
+                    <div id="form">
+                        <form #f="ngForm" (ngSubmit)="startRent(f.value)">
+                            <div class="form-group">
+                                <label for="StartingTime">Start From</label>
+                                  <div class="input-group">
+                                    <angular2-date-picker [(ngModel)]="date" name="dateAndTime" [settings]="settings" class="block">
+                                    <div class="input-group-append"><button class="btn btn-outline-secondary fa fa-calendar" type="button"></button></div></angular2-date-picker>
+                                  </div>
+                            </div>
+                            <button class="btn" style="background-color: indianred;color:white !important;">Rent It</button>
+                        </form>
+                    </div>   
+            </div>
+        </div>
+        
+    </div>
+</div>

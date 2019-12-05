@@ -1,0 +1,216 @@
+#landing-header{
+  z-index: 1;
+  position: absolute;
+  text-align: center;
+  padding-top: 30vh;
+  padding-left: 20vh;
+  padding-bottom: 20vh;
+  font-family: lato;
+}
+#cover{
+  /* background: url('https://images.unsplash.com/photo-1558981359-219d6364c9c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'); */
+  /* background: url('https://images.unsplash.com/photo-1565605814785-090425053d36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1506&q=80'); */
+  background: url('https://images.unsplash.com/photo-1558495136-85de57ae454b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1526&q=80');
+  background-size: cover;
+  /* background-color: rgba(255,255,255,0.3);
+  background-blend-mode: lighten; */
+  background-position: center;
+  height: 700px;
+}
+#header{
+  background-color: #000;
+}
+.slideshow { 
+  /* position: absolute; */
+  width: 100%;
+  height: 700px;
+  /* top: 0;
+  left: 0; */
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.slideshow li { 
+  width: 100%;
+  height: 700px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  animation: imageAnimation 50s linear infinite; 
+}
+.slideshow li:nth-child(1) { 
+  background-image: url(https://images.unsplash.com/photo-1558495136-85de57ae454b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1526&q=80) 
+}
+.slideshow li:nth-child(2) { 
+  background-image: url(https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
+  animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+  background-image: url(https://images.unsplash.com/photo-1565605814785-090425053d36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1506&q=80);
+  animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+  background-image: url(https://images.unsplash.com/photo-1506192778481-1b7fc973dede?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1498&q=80);
+  animation-delay: 30s; 
+}
+
+
+@keyframes imageAnimation { 
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
+}
+
+#brand-title{
+  color: whitesmoke;
+  font-weight: 700;
+  font-size: 7em;
+  margin-top: 40px;
+}
+#brand-caption{
+  color: whitesmoke;
+  font-weight: 300;
+  font-size: 3em;
+  margin-top: 5px;
+}
+hr{
+  width: 400px;
+  border-top: 1px solid #f8f8f8;
+  border-bottom: 1px solid rgba(0, 0, 0,0.2)
+}
+#started-btn{
+  margin-top: 20px;
+}
+#body{
+  padding-top: 3%;
+}
+#why-title{
+  font-family: lato;
+  font-weight: 600;
+}
+#use{
+  margin-top: 5%;
+  padding-top: 7%;
+  border-top: 3px solid rgba(205, 92, 92, 0.5);
+}
+.col-md-4{
+  padding: 4%;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  color: indianred;
+  background-image: none;
+}
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 50px;
+  color: indianred;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 50px;
+  color: indianred;
+}
+.caption{
+  padding-top: 2%;
+}
+.caption p{
+  font-size: 25px;
+}
+.carousel-indicators .active{
+  background-color:indianred;
+}
+/* .carousel-indicators {
+  /* bottom:-30px; */
+
+
+.carousel-indicators li{
+  background-color: grey;
+}
+#testimonials{
+  padding-bottom: 10px;
+  background: url('https://images.unsplash.com/photo-1532210317995-cc56d90177d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');
+}
+#test-header{
+  margin-top: 5%;
+  width: auto;
+  /* text-decoration: underline;
+  text-decoration-color: indianred; */
+}
+#para{
+  font-size: 20px;
+}
+#div3{
+  padding-top: 40px;
+  margin: auto;
+  width: 50%;
+  
+}
+#div1,#div2{
+  padding-top: 30px;
+}
+#hr{
+  width: 50px;
+  border-top: 1px solid indianred;
+  background-color:rgba(205, 92, 92, 0.5);
+}
+#footer{
+  padding-top: 3%;
+}
+#ride-para{
+  padding-top: 10px;
+  font-size: 30px;
+}
+#get-para{
+  font-size: 20px;
+  color: indianred;
+  font-weight: bold;
+}
+#addr1,#addr2{
+  margin:0 !important;
+  font-size: 18px;
+}
+#hr-footer{
+  margin-top: 20px;
+  
+}
+#copy{
+  margin: 0 !important;
+  font-size: 20px;
+}
+.fa{
+  font-size: 40px;
+  padding: 20px 20px 10px 20px;
+}
+.fa-google{
+  color: indianred;
+}
+.fa-facebook-square{
+  color: blue;
+}
+.fa-twitter{
+  color: #1DA1F2;
+}

@@ -1,0 +1,31 @@
+<h3 class="text-center display-4 text-danger" style="margin-top: 100px">Thank You!</h3>
+<h5 *ngIf="rental" style="margin-left: 30px">Hi {{ rental.customer.name }},</h5>
+<p style="margin-left: 30px">Thank you for renting a bike with us.Hope you had a pleasant ride.The total charge and the rental details are mentioned
+    below.<br>We hope you to see you in the future.
+</p>
+    <div class="row container" style="margin-left: 30px">
+        <div class="col-md-7">
+            <img  src="../../assets/images/money.jpg"/>
+            <h3 id="charges" class="text-danger">Total Charges</h3>
+            <h5 *ngIf="rental" class="text-dark">Total charge for the rental was {{ rental.totalCost | currency :' Rs ' }}</h5>
+            <p><em>Contact the seller for payment</em></p>
+        </div>
+        <div *ngIf="bill" class="col-md-5 bill">
+            <h5 class="text-danger">Billing Details</h5>
+            <p class="text-muted">Invoice no : {{ bill.id }} </p>
+            <p *ngIf="rental" class="text-muted">Rented from {{ rental.rentalBegin | date:'dd-MM-yyyy hh:mm a' }}</p>
+            <p *ngIf="rental" class="text-muted">Rented to {{ rental.rentalEnd | date:'dd-MM-yyyy hh:mm a' }}</p>
+            <p class="text-muted">First hour charges : {{ bill.firstHourCharges }}</p>
+            <p class="text-muted">Additonal hour charges : {{ bill.additionalCharges }}</p>
+            <hr>
+            <h5 class="text-dark">Seller Info</h5>
+            <p  *ngIf="rental" class="text-muted"><i class="fa fa-user"></i>{{ rental.bike.seller.name }}</p>
+            <p  *ngIf="rental" class="text-muted"><i class="fa fa-home"></i>{{ rental.bike.seller.address }}</p>
+            <p  *ngIf="rental" class="text-muted"><i class="fa fa-phone"></i>{{ rental.bike.seller.phone }}</p>
+            <hr>
+            <button type="button" class="btn btn-outline-danger" (click)="generateInvoice()">Generate Invoice</button>
+            <button id="btn-renting" class="btn btn-outline-info" (click)="goToBikes()">Continue Renting</button>
+        </div>
+            
+    </div>
+    

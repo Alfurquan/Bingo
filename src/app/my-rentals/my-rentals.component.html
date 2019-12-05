@@ -1,0 +1,124 @@
+<h1 class="text-center display-4" id="header" style="margin-top: 100px">My Rentals</h1>
+<hr>
+<!-- Nav Tabs -->
+<ngb-tabset type="pills" id="tab-set">
+        <ngb-tab title="All Rentals" style="color: indianred !important">
+          <ng-template ngbTabContent>
+            <div id ="all-rentals" class="container">
+                <div *ngFor="let allRental of allRentals" class="row">
+                    <div class="col-md-3">
+                        <img  src="{{allRental.bike.image}}" alt="" class="img-thumbnail" width="250px" height="250px">
+                    </div>
+                    <div class="col-md-6">
+                         <h5>{{allRental.bike.model}}</h5>
+                         <p class="text-muted">Rental no {{allRental.id }}</p>
+                         <p class="text-muted">{{allRental.bike.vehicleNumber }}</p>
+                         <p *ngIf="checkIFActiveOrNot(allRental) else ends"class="text-muted">Rented on {{allRental.rentalBegin |  date:'dd-MM-yyyy hh:mm a' }}</p>
+                         <ng-template #ends>
+                          <p class="text-muted">Started on {{allRental.rentalBegin |  date:'dd-MM-yyyy hh:mm a' }}</p>
+                          <p class="text-muted">Ended on {{allRental.rentalEnd |  date:'dd-MM-yyyy hh:mm a' }}</p>
+                         </ng-template>
+                         <p class="text-muted">Seller : {{allRental.seller.name }}</p>
+                    </div>
+                    <div *ngIf="checkIFActiveOrNot(allRental) else ended" class="col-md-3">
+                        <button id="end-btn" class="btn btn-outline-danger" (click)="openConfirmationDialog(allRental.id)">End Rental</button>
+                    </div>
+                    <ng-template #ended>
+                      <div class="col-md-3">
+                        <a [routerLink]="['/rentals/',allRental.id]" id="end-btn" class="btn viewBtn" >View Rental</a>
+                    </div>
+                    </ng-template>
+                </div>
+            </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+          <ng-template ngbTabTitle>Active Rentals</ng-template>
+          <ng-template ngbTabContent>
+                <div id ="active-rentals" class="container">
+                        <div *ngFor="let activeRental of activeRentals" class="row">
+                            <div class="col-md-3">
+                                <img  src="{{activeRental.bike.image}}" alt="" class="img-thumbnail" width="250px" height="250px">
+                            </div>
+                            <div class="col-md-6">
+                                 <h5>{{activeRental.bike.model}}</h5>
+                                 <p class="text-muted">Rental no {{activeRental.id }}</p>
+                                 <p class="text-muted">{{activeRental.bike.vehicleNumber }}</p>
+                                 <p class="text-muted">Rented on {{activeRental.rentalBegin |  date:'dd-MM-yyyy hh:mm a' }}</p>
+                                 <p class="text-muted">Seller : {{activeRental.seller.name }}</p>
+                            </div>
+                            <div *ngIf="checkIFActiveOrNot(activeRental)" class="col-md-3">
+                                <button id="end-btn" class="btn btn-outline-danger" (click)="openConfirmationDialog(activeRental.id)">End Rental</button>
+                            </div>
+                        </div>
+                    </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+          <ng-template ngbTabTitle>Scheduled Rentals</ng-template>
+          <ng-template ngbTabContent>
+                <div id ="scheduled-rentals" class="container">
+                        <div *ngFor="let scheduledRental of scheduled-rentals" class="row">
+                            <div class="col-md-3">
+                                <img  src="{{scheduledRental.bike.image}}" alt="" class="img-thumbnail" width="250px" height="250px">
+                            </div>
+                            <div class="col-md-6">
+                                 <h5>{{scheduledRental.bike.model}}</h5>
+                                 <p class="text-muted">Rental no {{scheduledRental.id }}</p>
+                                 <p class="text-muted">{{scheduledRental.bike.vehicleNumber }}</p>
+                                 <p class="text-muted">Rental to begin on {{scheduledRental.rentalBegin |  date:'dd-MM-yyyy hh:mm a' }}</p>
+                                 <p class="text-muted">Seller : {{scheduledRental.seller.name }}</p>
+                            </div>
+                            <div *ngIf="checkIFActiveOrNot(scheduledRental)" class="col-md-3">
+                                <button id="end-btn" class="btn btn-outline-danger" (click)="openConfirmationDialog(activeRental.id)">End Rental</button>
+                            </div>
+                        </div>
+                    </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Ended Rentals">
+          <ng-template ngbTabContent>
+            <div id ="ended-rentals" class="container">
+              <div *ngFor="let endedRental of endedRentals" class="row">
+                  <div class="col-md-3">
+                      <img  src="{{endedRental.bike.image}}" alt="" class="img-thumbnail" width="250px" height="250px">
+                  </div>
+                  <div class="col-md-6">
+                       <h5>{{endedRental.bike.model}}</h5>
+                       <p class="text-muted">Rental no {{endedRental.id }}</p>
+                       <p class="text-muted">{{endedRental.bike.vehicleNumber }}</p>
+                       <p class="text-muted">Started on {{endedRental.rentalBegin |  date:'dd-MM-yyyy hh:mm a' }}</p>
+                       <p class="text-muted">Ended on {{endedRental.rentalEnd |  date:'dd-MM-yyyy hh:mm a' }}</p>
+                       <p class="text-muted">Seller : {{endedRental.seller.name }}</p>
+                  </div>
+                  <div class="col-md-3">
+                      <a [routerLink]="['/rentals/',endedRental.id]" id="end-btn" class="btn btn-outline-info" >View Rental</a>
+                  </div>
+              </div>
+          </div>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+      <div class="modal fade" tabindex="-1" role="dialog"  id="myModal3">
+            <div class="modal-dialog model-lg" role="document">
+              <div class="modal-content">
+          
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">End Rental</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body">
+                     Do you really want to end the rental?
+                </div>
+          
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="endRental()">Yes</button>  
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                </div>
+          
+              </div>
+            </div>

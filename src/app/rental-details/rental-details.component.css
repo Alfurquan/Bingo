@@ -1,0 +1,19 @@
+p{
+    margin: 0 !important;
+}
+#bike-details{
+    margin-top: 2%;
+    padding-left: 150px;
+}
+#rental-details{
+    padding-right: 20px;
+}
+#rental-header{
+    margin-top: 2%;
+}
+#image-bike{
+    margin-top: 5%;
+}
+.fa{
+    margin-right: 5px;
+}

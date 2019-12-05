@@ -1,0 +1,23 @@
+<div class="container">
+<div class="card rounded">
+<h3 class="display-4 text-center" style="font-family: 'Patrick Hand', cursive;color: indianred">Sign In</h3>
+<p class="text-muted text-center" style="font-size: 22px;">Login to your account</p>
+<div style="width:45%; margin: 20px auto">
+    <form #f="ngForm" (ngSubmit)="login(f.value)">
+        <div class="form-group">
+                <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></span></div>
+            <input type="email" name="username" placeholder="Email" ngModel class="form-control" required />
+            </div>
+        </div>
+        <div class="form-group">
+                <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></span></div>
+            <input type="password" name="password" placeholder="Password" ngModel class="form-control" required/>
+            </div>
+        </div>
+            <button type="submit" class="btn btn-block" [disabled]="!f.valid" style="margin-top: 5%;background-color: indianred;color: white">Login</button>
+    </form>
+</div>
+</div>
+</div>

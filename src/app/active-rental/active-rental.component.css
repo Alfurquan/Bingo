@@ -1,0 +1,13 @@
+p{
+    margin: 0px !important;
+}
+h2{
+    margin-bottom: 5%;
+}
+.row{
+    border-bottom: 1px solid #d3d3d3;
+    padding: 15px 0px 15px 0px;
+}
+#end-btn{
+    margin-top: 40px;
+}

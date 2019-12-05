@@ -1,0 +1,23 @@
+.container{
+    max-width: 700px;
+}
+.card{
+    margin-top: 2%;
+    box-shadow: 0 8px 16px 0 rgba(205, 92, 92, 0.7) !important;
+}
+.form-control:focus{
+    border-color: indianred !important;
+    /* box-shadow: 4px 8px 4px 4px wheat !important; */
+    outline: 8px indianred !important;
+     -webkit-box-shadow: none;
+}
+.custom-select:focus{
+    border-color: indianred !important;
+    /* box-shadow: 4px 8px 4px 4px wheat !important; */
+    outline: 8px indianred !important;
+     -webkit-box-shadow: none;
+}
+.custom-select option :hover{
+    box-shadow: 0 0 10px 10px #e1358f inset;
+
+}

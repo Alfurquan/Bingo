@@ -1,0 +1,7 @@
+.container{
+    max-width: 650px !important;
+    margin-top: 8%;
+}
+.card{
+    box-shadow: 0 8px 16px 0 rgba(205, 92, 92, 0.7) !important;
+}

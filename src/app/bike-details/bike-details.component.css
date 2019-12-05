@@ -1,0 +1,25 @@
+.card-body{
+    padding-bottom: 0px !important;
+    margin-bottom: 2%;
+}
+.fa{
+    cursor: pointer;
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+    vertical-align: bottom;
+}
+angular2-date-picker{
+    width: 500px;
+}
+#scheduleForLater{
+    margin-left: 70px;
+}
+#form{
+    display: none;
+    margin-top: 30px;
+}
+.header{
+    font-family: 'BrandonTextWeb-Regular';
+    background-color: indianred;
+}

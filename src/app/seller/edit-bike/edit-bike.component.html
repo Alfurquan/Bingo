@@ -1,0 +1,65 @@
+<h5 class="display-4">Edit</h5>
+<div class="row">
+    <div class="col-md-4" style="margin-top: 2%">
+        <form #f="ngForm" (ngSubmit)="edit(f.value)">
+            <div class="form-group">
+                <label for="model">Model</label>
+                <input *ngIf="bike"type="text" id="model" name="model" [(ngModel)]="bike.model" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input *ngIf="bike"type="text" id="image" name="image" [(ngModel)]="bike.image" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="vehicleNumber">Vehicle Number</label>
+                <input *ngIf="bike"type="text" id="vehicleNumber" name="vehicleNumber" [(ngModel)]="bike.vehicleNumber" class="form-control"/>
+            </div>
+            <div class="form-group">
+                    <label for="noInStock">Number In Stock</label>
+                    <input *ngIf="bike" type="number" name="noInStock" id="noInStock" [(ngModel)]="bike.noInStock" class="form-control" />
+                </div>
+            <div class="form-group">
+                    <label for="rentalPriceForFirstHour">Rental Price For First Hour</label>
+                    <input *ngIf="bike" type="number" name="rentalPriceForFirstHour" id="rentalPriceForFirstHour" [(ngModel)]="bike.rentalPriceForFirstHour" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="rentalPriceForAdditionalHours">Rental Price For Additional Hours</label>
+                    <input *ngIf="bike" type="number" name="rentalPriceForAdditionalHours" id="rentalPriceForAdditionalHours" [(ngModel)]="bike.rentalPriceForAdditionalHours" class="form-control" />
+                </div>
+                <div *ngIf="bike"class="form-group">
+                    <label for="dateOfPurchase">Date Of Purchase</label>
+                    <div class="input-group">
+                        <input type="text" [value]="bike.dateOfPurchase | date:'yyyy-MM-dd'" name="dateOfPurchase" id="dateOfPurchase"  ngbDatepicker #d1="ngbDatepicker" class="form-control" />
+                        <div class="input-group-append"><button class="btn btn-outline-secondary fa fa-calendar" (click)="d1.toggle()" type="button"></button></div>
+                    </div>   
+                </div>
+                <div *ngIf="bike" class="form-group">
+                    <label for="dateOfLastService">Date Of Last Service</label>
+                    <div class="input-group">
+                        <input type="text" [value]="bike.dateOfLastService | date:'yyyy-MM-dd'" name="dateOfLastService" id="dateOfLastService" ngbDatepicker #d2="ngbDatepicker"  class="form-control" />
+                        <div class="input-group-append"><button class="btn btn-outline-secondary fa fa-calendar" (click)="d2.toggle()" type="button"></button></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <select *ngIf="bike" #category="ngModel" [(ngModel)]="bike.category.id" name="categoryId" id="category" class="form-control" required>
+                        <option value="">Choose Category</option>
+                        <option *ngFor="let c of categories" [value]="c.id">{{ c.name }}</option>
+                        </select>
+                </div>
+            <button type="submit" class="btn btn-primary btn-block">Save</button>
+        </form>
+    </div>
+    <div class="col-md-7" style="margin-left: 8%">
+        <div *ngIf="bike" class="card" style="width: 18rem;">
+            <img class="card-img-top" [src]="bike.image" *ngIf="bike.image">
+            <div class="card-body">
+                <h5 class="card-title">{{bike.model}}</h5>
+                <h5>{{bike.vehicleNumber}}</h5>
+                <p class="card-text" *ngIf="InStockOrRented() else rented">In stock</p>
+                <ng-template #rented>
+                    <p class="card-text">Rented</p>
+                </ng-template>
+            </div>
+            </div>
+    </div>
+</div>

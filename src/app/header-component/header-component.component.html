@@ -1,0 +1,166 @@
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white">
+  <a class="navbar-brand pull-sm-left" routerLink="/">
+    <img
+      src="../../assets/images/logo1.png"
+      width="50"
+      height="50"
+      class="img-fluid"
+    />
+    <h3 class="brand-header text-center">Bingo!</h3>
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="nav navbar-nav mx-auto">
+      <li class="nav-item active">
+        <a
+          class="nav-link text-muted"
+          routerLink="/bikes"
+          routerLinkActive="class-name"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Start Renting
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/active/rentals"
+          routerLinkActive="class-name"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Active Rentals</a
+        >
+      </li>
+    </ul>
+    <ul class="nav navbar-nav pull-sm-right">
+      <ng-template #anonymousUser>
+        <li class="nav-item">
+          <a class="nav-link text-dark" routerLink="/location"
+            ><i
+              class="fa fa-map-marker"
+              routerLinkActive="class-name"
+              [routerLinkActiveOptions]="{ exact: true }"
+              aria-hidden="true"
+            ></i
+          ></a>
+        </li>
+        <!-- <li class="nav-item">
+              <a class="nav-link text-muted" routerLink="/register">Register</a>
+          </li> -->
+        <li class="nav-item" id="login">
+          <a
+            class="nav-link text-muted"
+            (click)="openDialog()"
+            routerLinkActive="class-name"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Login <i class="fa fa-user text-dark" style="margin-left: 5px"></i
+          ></a>
+        </li>
+      </ng-template>
+      <li
+        ngbDropdown
+        *ngIf="authService.isLoggedIn(); else anonymousUser"
+        class="nav-item dropdown"
+      >
+        <a
+          ngbDropdownToggle
+          class="nav-link dropdown-toggle"
+          id="dropdown01"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          {{ "Hello " + user }}</a
+        >
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+          <a
+            class="dropdown-item"
+            *ngIf="authService.isSeller()"
+            routerLink="/seller/add"
+            >Add Bike</a
+          >
+          <a
+            class="dropdown-item"
+            *ngIf="authService.isSeller()"
+            routerLink="/seller/bikes"
+            >My Bikes</a
+          >
+          <a class="dropdown-item" routerLink="/my/rentals">My Rentals</a>
+          <a class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          style="margin:10px !important"
+        >
+          &times;
+        </button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-center">
+        <img src="../../assets/images/logo1.png" width="140" height="140" />
+        <h2 class="display-4 brand-name">Bingo</h2>
+        <p class="brand-caption">Let's start binGoing!</p>
+        <br />
+        <button type="button" class="loginBtn" (click)="goToLogin()">
+          <div class="login001">
+            <div class="login002">
+              <img
+                src="../../assets/images/mail.svg"
+                class="mailIcon"
+                width="40"
+                height="40"
+              />
+              <span class="loginText">Sign in with email</span>
+            </div>
+          </div>
+        </button>
+        <button
+          type="button"
+          class="loginBtn"
+          (click)="goToRegister()"
+          style="margin-bottom: 15px; margin-top: 20px;"
+        >
+          <div class="login001">
+            <div class="login002">
+              <img
+                src="../../assets/images/person.png"
+                class="mailIcon"
+                width="28"
+                height="28"
+              />
+              <span class="loginText">Create a new account</span>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal footer -->
+    <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="endRental()">Yes</button>  
+          <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+        </div> -->
+  </div>
+</div>

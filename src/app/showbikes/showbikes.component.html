@@ -1,0 +1,41 @@
+<h3 class="display-4 text-center" style="margin:100px 0px 20px 0px !important;">Bikes Nearby</h3>
+
+        <agm-map  [latitude]="latitude" [longitude]="longitude" [fitBounds]="true">
+                <agm-marker *ngFor="let bike of bikeLoc"
+                  [latitude]="bike.latitude" [longitude]="bike.longitude"
+                  [agmFitBounds]="true" (markerClick)="click(bike.sellerId)">
+                </agm-marker>
+        </agm-map>
+        <div class="modal fade" tabindex="-1" role="dialog" id="myModal1">
+          <div class="modal-dialog modal-dialog-centered model-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="color: indianred;margin-left: 120px !important">Bikes at this location</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div *ngFor="let selectedBike of selectedBikes;let i = index" [ngClass]="i == 0 ? 'carousel-item active' : 'carousel-item'">
+                              <div class="card text-center" style="width: 20rem;">
+                                  <img class="card-img-top" src="{{selectedBike.image}}" alt="Card image cap" width="100px" height="200px">
+                                  <div class="card-body">
+                                        <h5 class="card-title">{{selectedBike.model}}</h5>
+                                        <p class="card-text">{{ selectedBike.vehicleNumber }}</p>
+                                        <p class="card-text">No in stock: {{selectedBike.noInStock }}</p>
+                                        <button class="btn" (click)="show(selectedBike.id)" style="background-color: indianred;color:white">Go somewhere</button>
+                                  </div>
+                              </div>
+                        </div>
+                    </div> 
+                    <a *ngIf="checkIfOneBike()" class="carousel-control-prev" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a *ngIf="checkIfOneBike()" class="carousel-control-next" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                </div>
+            </div>
+          </div>
+        </div>

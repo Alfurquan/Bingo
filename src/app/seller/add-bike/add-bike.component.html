@@ -1,0 +1,50 @@
+<h3 class="display-4 text-center">Add Bike</h3>
+<div style="width:300px;margin: 20px auto ">
+<form #f="ngForm" (ngSubmit)="save(f.value)">
+    <div class="form-group">
+        <label for="model">Model</label>
+        <input type="text" name="model" id="model" ngModel class="form-control" />
+    </div>
+    <div class="form-group">
+            <label for="image">Image</label>
+            <input type="text" name="image" id="image" ngModel class="form-control" />
+    </div>
+    <div class="form-group">
+            <label for="vehicleNumber">Vehicle Number</label>
+            <input type="text" name="vehicleNumber" id="vehicleNumber" ngModel class="form-control" />
+    </div>
+    <div class="form-group">
+            <label for="noInStock">Number In Stock</label>
+            <input type="number" name="noInStock" id="noInStock" ngModel class="form-control" />
+        </div>
+    <div class="form-group">
+        <label for="rentalPriceForFirstHour">Rental Price For First Hour</label>
+        <input type="number" name="rentalPriceForFirstHour" id="rentalPriceForFirstHour" ngModel class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="rentalPriceForAdditionalHours">Rental Price For Additional Hours</label>
+        <input type="number" name="rentalPriceForAdditionalHours" id="rentalPriceForAdditionalHours" ngModel class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="dateOfPurchase">Date Of Purchase</label>
+        <div class="input-group">
+            <input type="text" name="dateOfPurchase" id="dateOfPurchase" ngbDatepicker #d1="ngbDatepicker" ngModel class="form-control" />
+            <div class="input-group-append"><button class="btn btn-outline-secondary fa fa-calendar" (click)="d1.toggle()" type="button"></button></div>
+        </div>   
+    </div>
+    <div class="form-group">
+        <label for="dateOfLastService">Date Of Last Service</label>
+        <div class="input-group">
+            <input type="text" name="dateOfLastService" id="dateOfLastService" ngbDatepicker #d2="ngbDatepicker" ngModel class="form-control" />
+            <div class="input-group-append"><button class="btn btn-outline-secondary fa fa-calendar" (click)="d2.toggle()" type="button"></button></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <select #category="ngModel" ngModel name="categoryId" id="category" class="form-control" required>
+            <option value="">Choose Category</option>
+            <option *ngFor="let c of categories" [value]="c.id">{{ c.name }}</option>
+            </select>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Save</button>
+</form>
+</div>
